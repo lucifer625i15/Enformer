@@ -1,0 +1,59 @@
+{% extends "dashboard/dash.html" %}
+{% block title %} Edit {% endblock title %}
+{% block body %}
+<script src="https://cdn.ckeditor.com/ckeditor5/15.0.0/classic/ckeditor.js"></script>
+         
+
+
+<div class="container mt-5 p-5">
+
+    <div class="row">
+        <div class="col-lg-8">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleInputEmail1">User Name</label>
+                    <input type="text" class="form-control" disabled name="author" value="{{requests.user}}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User Name">
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" value="{{requests.title}}" name="title" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">User Name</label>
+                    <textarea name="content"  id="editor" style="height: 1000px;"> {{requests.content}}</textarea>
+                    <script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                                CKEDITOR.config.height = 2000;
+                                editor.resize( '100%', '350' )
+                    </script>
+                </div>
+
+                <div  style="margin-left: -10px;">
+                    <label class="mt-3">Upload Image</label>
+                    <div class="custom-file">
+                        <!-- <input type="file" name="file"> -->
+                        <input name="file" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" >Choose file</label>
+                    </div>
+                </div>
+        
+                <button type="submit" class="btn btn-success mt-3">Submit</button>
+            </form>
+        
+
+        </div>
+    </div>
+   
+</div>
+
+{% endblock %}

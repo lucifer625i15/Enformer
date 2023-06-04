@@ -1,0 +1,31 @@
+{% extends "base_reg.html" %}
+{% block title %} Login{% endblock title %}
+{% block body %}
+
+    {% load static %}
+
+        <div class="container mt-5 p-5" style="align: center;">
+            <h2 class="pb-2">LOGIN HERE</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form method="POST" action="#">
+                        {% csrf_token %}
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                            </div>
+                        <p>Don't Have Account <a href="/register">Register Here</a></p>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+
+{% endblock %}

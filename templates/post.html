@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %} {{blog.title}} {% endblock title %}
+{% block body %}
+    <div class="container">
+      <div class="row">
+        <!-- Latest Posts -->
+        <main class="post blog-post col-lg-8"> 
+          <div class="container">
+            <div class="post-single">
+              <div class="post-thumbnail"><img src="/media/{{blog.image}}"  class="img-fluid img-thumbnail" ></div>
+              <div class="post-details">
+                <h1>{{blog.title}}<a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
+                <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
+                    {% comment %} <div class="avatar"><img src="/static/image/profile/{{request.user.profile_image}}" alt="..." class="img-fluid"></div> {% endcomment %}
+                    <div class="title"><span>{{blog.user}}</span></div></a>
+                  <div class="d-flex align-items-center flex-wrap">       
+                    <div class="date"><i class="icon-clock"></i>{{blog.created_at}}</div>
+                  </div>
+                </div>
+                <p class="mt-5 justify-content text-justify" style="line-height: 30px;font-size: 18px">{{blog.content|safe}}</p>      
+              </div>
+            </div>
+          </div>
+        </main>
+      
+      </div>
+    </div>
+    {% endblock %}
