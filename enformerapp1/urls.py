@@ -17,7 +17,6 @@ urlpatterns = [
    path('add/', views.add ,name='add'),
    # path('main', views.main ,name='main'),
    path("delete-post/<int:id>/", views.delete_post, name="delete-post"),
-
    # path("about",views.about, name='about'),
    # path("services",views.services, name='services'),
 ]
